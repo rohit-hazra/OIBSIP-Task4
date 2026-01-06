@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LogIn Page</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="auth-container">
+
+    <div class="message-panel">
+      <h1 id="panelTitle">Welcome Back</h1>
+      <p id="panelText">Continue your learning journey with a clear view of your progress.
+        Access your dashboard to resume modules and track achievements.</p>
+    </div>
+
+    <div class="form-panel">
+      <div class="tabs">
+        <button id="loginTab" class="active">Login</button>
+        <button id="registerTab">Register</button>
+      </div>
+
+      <form id="loginForm" class="active">
+        <h2>Sign In</h2>
+
+        <input type="email" id="loginEmail" placeholder="Email" />
+
+        <div class="password-box">
+          <input type="password" id="loginPassword" placeholder="Password" />
+          <span class="eye" onclick="togglePassword('loginPassword', this)">👁</span>
+        </div>
+
+        <button type="button" onclick="login()">Login</button>
+        <span id="loginMsg" class="msg"></span>
+        <p class="switch-text">
+          Don’t have an account?
+          <span onclick="registerTab.click()">Click here</span>
+        </p>
+
+      </form>
+
+      <form id="registerForm">
+        <h2>Create Account</h2>
+
+        <input type="text" id="regName" placeholder="Full Name" />
+        <input type="email" id="regEmail" placeholder="Email Address" />
+
+        <div class="password-box">
+          <input type="password" id="regPassword" placeholder="Password" />
+          <span class="eye" onclick="togglePassword('regPassword')">👁</span>
+        </div>
+        <small class="hint">
+          Password must contain uppercase, lowercase, number, special symbol & be 6+ characters
+        </small>
+
+        <div class="password-box" id="confirmBox">
+          <input type="password" id="regConfirmPassword" placeholder="Confirm Password" />
+          <span class="eye" onclick="togglePassword('regConfirmPassword')">👁</span>
+        </div>
+
+        <button type="button" onclick="register()">Register</button>
+        <span id="registerMsg" class="msg"></span>
+        <p class="switch-text">
+          Already have an account?
+          <span onclick="loginTab.click()">Click here</span>
+        </p>
+
+      </form>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

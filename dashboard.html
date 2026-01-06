@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning Dashboard</title>
+  <link rel="stylesheet" href="dashbord.css">
+</head>
+
+<body onload="checkAuth()">
+  <div class="container">
+
+    <header>
+      <div class="brand">Learning Portal</div>
+      <div class="user-menu">
+        <span id="username"></span>
+        <button class="logout" onclick="logout()">Logout</button>
+      </div>
+    </header>
+
+    <div class="dashboard">
+
+      <div class="card profile">
+        <h2 id="userNameCard"></h2>
+        <p>Track: Web Development</p>
+        <p>Status: Active</p>
+
+        <h3 style="margin-top:20px;">Overall Progress</h3>
+        <div class="progress-bar">
+          <div class="progress"></div>
+        </div>
+        <p>13 / 20 modules completed</p>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:20px;">Learning Assets</h2>
+
+        <div class="assets">
+
+          <div class="asset">
+            <h3>HTML Fundamentals</h3>
+            <p>Structure, semantic elements, accessibility basics.</p>
+            <span class="badge">Completed</span>
+            <button>Review</button>
+          </div>
+
+          <div class="asset">
+            <h3>CSS Mastery</h3>
+            <p>Layouts, Flexbox, Grid, responsive design.</p>
+            <span class="badge">In Progress</span>
+            <button>Continue</button>
+          </div>
+
+          <div class="asset">
+            <h3>JavaScript Essentials</h3>
+            <p>Variables, functions, DOM manipulation.</p>
+            <span class="badge">In Progress</span>
+            <button>Continue</button>
+          </div>
+
+          <div class="asset">
+            <h3>Authentication & Security</h3>
+            <p>Login flows, validation, storage, best practices.</p>
+            <button>Start</button>
+          </div>
+
+          <div class="asset">
+            <h3>Mini Projects</h3>
+            <p>Apply skills through real-world projects.</p>
+            <button>Explore</button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function checkAuth() {
+      if (localStorage.getItem("auth") !== "true") {
+        window.location.href = "index.html";
+      }
+      const user = JSON.parse(localStorage.getItem("user"));
+      document.getElementById("username").textContent = user.name;
+      document.getElementById("userNameCard").textContent = user.name;
+    }
+
+    function logout() {
+      localStorage.removeItem("auth");
+      window.location.href = "index.html";
+    }
+  </script>
+
+</body>
+
+</html>
